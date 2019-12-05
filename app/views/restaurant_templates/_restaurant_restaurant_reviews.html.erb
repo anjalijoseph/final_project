@@ -10,28 +10,22 @@
   <ul class="list-group list-group-flush">
     <% @restaurant.restaurant_reviews.each do |restaurant_review| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/restaurant_reviews/<%= restaurant_review.id %>">
           <%= restaurant_review.restaurant_id %>
         </a>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%if current_user == restaurant_review.user %>
           <a href="/delete_restaurant_review_from_restaurant/<%= restaurant_review.id %>">
             Delete
           </a>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="restaurant_restaurant_reviews_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "restaurant_templates/restaurant_restaurant_reviews_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

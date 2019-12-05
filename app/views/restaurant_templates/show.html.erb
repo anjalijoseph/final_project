@@ -11,76 +11,60 @@
         </a>
       </div>
 
-      <!-- Edit link restaurant start -->
       <div class="col">
         <a href="/restaurants/<%= @restaurant.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit restaurant
         </a>
       </div>
-      <!-- Edit link restaurant end -->
 
-      <!-- Delete link restaurant start -->
       <div class="col">
         <a href="/delete_restaurant/<%= @restaurant.id %>" class="btn btn-block btn-outline-secondary">
           Delete restaurant
         </a>
       </div>
-      <!-- Delete link restaurant end -->
     </div>
 
     <dl>
       <dt>
         Restaurant name
       </dt>
-      <!-- Display restaurant_name start -->
       <dd>
         <%= @restaurant.restaurant_name %>
       </dd>
-      <!-- Display restaurant_name end -->
 
       <dt>
         Restaurant address
       </dt>
-      <!-- Display restaurant_address start -->
       <dd>
         <%= @restaurant.restaurant_address %>
       </dd>
-      <!-- Display restaurant_address end -->
 
       <dt>
         Outdoor seating
       </dt>
-      <!-- Display outdoor_seating start -->
       <dd>
         <%= @restaurant.outdoor_seating %>
       </dd>
-      <!-- Display outdoor_seating end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@restaurant.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@restaurant.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <%= render partial: "restaurant_templates/restaurant_restaurant_reviews" %>
   </div>
 </div>
-<!-- Show Page Customization end -->

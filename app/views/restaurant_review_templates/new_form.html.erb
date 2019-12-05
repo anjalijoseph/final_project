@@ -5,27 +5,17 @@
 
 <hr>
 
-<!-- Form restaurant_review start -->
 <form action="/create_restaurant_review" method="post">
-<!-- Form restaurant_review end -->
 
-  <!-- Label and input for restaurant_id start -->
   <div class="form-group">
     <label for="restaurant_id">
       Restaurant
     </label>
 
-    <!-- Input for restaurant_id start -->
     <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.all, :id, :restaurant_name, @restaurant_review.restaurant_id), :class => "form-control") %>
-    <!-- Input for restaurant_id end -->
   </div>
-  <!-- Label and input for restaurant_id end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <input type="hidden" name="user_id" value="<%= current_user.id %>">
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create restaurant review

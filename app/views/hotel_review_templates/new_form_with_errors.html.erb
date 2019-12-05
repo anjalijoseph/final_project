@@ -1,4 +1,3 @@
-<!-- Validation failure messages -->
 <% if @hotel_review.present? %>
   <% if @hotel_review.errors.any? %>
     <% @hotel_review.errors.full_messages.each do |message| %>
@@ -16,27 +15,17 @@
 
 <hr>
 
-<!-- Form hotel_review start -->
 <form action="/create_hotel_review" method="post">
-<!-- Form hotel_review end -->
 
-  <!-- Label and input for hotel_id start -->
   <div class="form-group">
     <label for="hotel_id">
       Hotel
     </label>
 
-    <!-- Input for hotel_id start -->
     <%= select_tag(:hotel_id, options_from_collection_for_select(Hotel.all, :id, :hotel_name, @hotel_review.hotel_id), :class => "form-control") %>
-    <!-- Input for hotel_id end -->
   </div>
-  <!-- Label and input for hotel_id end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <input type="hidden" name="user_id" value="<%= current_user.id %>">
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create hotel review

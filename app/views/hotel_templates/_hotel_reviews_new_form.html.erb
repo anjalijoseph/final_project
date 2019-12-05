@@ -1,17 +1,8 @@
-<!-- Form hotel_review start -->
 <form action="/create_hotel_review_from_hotel" method="post">
-<!-- Form hotel_review end -->
 
-  <!-- Label and input for hotel_id start -->
-  <!-- Input for hotel_id start -->
   <input type="hidden" name="hotel_id" value="<%= @hotel.id %>">
-  <!-- Input for hotel_id end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <input type="hidden" name="user_id" value="<%= current_user.id %>">
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create hotel review

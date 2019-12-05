@@ -1,17 +1,8 @@
-<!-- Form restaurant_review start -->
 <form action="/create_restaurant_review_from_restaurant" method="post">
-<!-- Form restaurant_review end -->
 
-  <!-- Label and input for restaurant_id start -->
-  <!-- Input for restaurant_id start -->
   <input type="hidden" name="restaurant_id" value="<%= @restaurant.id %>">
-  <!-- Input for restaurant_id end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <input type="hidden" name="user_id" value="<%= current_user.id %>">
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create restaurant review

@@ -10,28 +10,22 @@
   <ul class="list-group list-group-flush">
     <% @hotel.reviews.each do |hotel_review| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/hotel_reviews/<%= hotel_review.id %>">
           <%= hotel_review.created_at %>
         </a>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%if current_user == hotel_review.user %>
           <a href="/delete_hotel_review_from_hotel/<%= hotel_review.id %>">
             Delete
           </a>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="hotel_reviews_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "hotel_templates/hotel_reviews_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

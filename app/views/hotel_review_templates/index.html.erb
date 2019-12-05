@@ -10,17 +10,13 @@
   </div>
 </div>
 
-<!-- Ransack Code start -->
 <div class="row">
   <div class="col-md-12 mb-3">
     <%= render partial: "hotel_review_templates/hotel_reviews_search_form" %>
   </div>
 </div>
-<!-- Ransack Code end -->
 
-<!-- Location Map Code start -->
 
-<!-- Location Map Code end -->
 
 <hr>
 
@@ -54,13 +50,10 @@
 
       <% @hotel_reviews.each do |hotel_review| %>
       <tr>
-        <!-- Display hotel_review.id start -->
         <td>
           <%= hotel_review.id %>
         </td>
-        <!-- Display hotel_review.id end -->
 
-        <!-- Display hotel_review.hotel_id start -->
         <td>
           <% if hotel_review.hotel.present? %>
             <a href="/hotels/<%= hotel_review.hotel.id %>">
@@ -68,9 +61,7 @@
             </a>
           <% end %>
         </td>
-        <!-- Display hotel_review.hotel_id end -->
 
-        <!-- Display hotel_review.user_id start -->
         <td>
           <% if hotel_review.user.present? %>
             <a href="/users/<%= hotel_review.user.id %>">
@@ -78,19 +69,14 @@
             </a>
           <% end %>
         </td>
-        <!-- Display hotel_review.user_id end -->
 
-        <!-- Display hotel_review.created_at start -->
         <td>
           <%= time_ago_in_words(hotel_review.created_at) %> ago
         </td>
-        <!-- Display hotel_review.created_at end -->
 
-        <!-- Display hotel_review.updated_at start -->
         <td>
           <%= time_ago_in_words(hotel_review.updated_at) %> ago
         </td>
-        <!-- Display hotel_review.updated_at end -->
 
         <td>
           <a href="/hotel_reviews/<%= hotel_review.id %>">

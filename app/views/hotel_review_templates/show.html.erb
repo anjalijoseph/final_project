@@ -11,7 +11,6 @@
         </a>
       </div>
 
-      <!-- Edit link hotel_review start -->
       <div class="col">
         <% if current_user == @hotel_review.user %>
           <a href="/hotel_reviews/<%= @hotel_review.id %>/edit" class="btn btn-block btn-sm btn-outline-secondary">
@@ -19,9 +18,7 @@
           </a>
         <% end %>
       </div>
-      <!-- Edit link hotel_review end -->
 
-      <!-- Delete link hotel_review start -->
       <div class="col">
         <% if current_user == @hotel_review.user %>
           <a href="/delete_hotel_review/<%= @hotel_review.id %>" class="btn btn-block btn-sm btn-outline-secondary">
@@ -29,14 +26,12 @@
           </a>
         <% end %>
       </div>
-      <!-- Delete link hotel_review end -->
     </div>
 
     <dl>
       <dt>
         Hotel
       </dt>
-      <!-- Display hotel_id start -->
       <dd>
         <% if @hotel_review.hotel.present? %>
           <a href="/hotels/<%= @hotel_review.hotel_id %>">
@@ -44,12 +39,10 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display hotel_id end -->
 
       <dt>
         User
       </dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @hotel_review.user.present? %>
           <a href="/users/<%= @hotel_review.user_id %>">
@@ -57,28 +50,21 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@hotel_review.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@hotel_review.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
-<!-- Show Page Customization end -->
