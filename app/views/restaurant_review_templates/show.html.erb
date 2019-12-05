@@ -1,0 +1,73 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Restaurant review #<%= @restaurant_review.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/restaurant_reviews" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <!-- Edit link restaurant_review start -->
+      <div class="col">
+        <a href="/restaurant_reviews/<%= @restaurant_review.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit restaurant review
+        </a>
+      </div>
+      <!-- Edit link restaurant_review end -->
+
+      <!-- Delete link restaurant_review start -->
+      <div class="col">
+        <a href="/delete_restaurant_review/<%= @restaurant_review.id %>" class="btn btn-block btn-outline-secondary">
+          Delete restaurant review
+        </a>
+      </div>
+      <!-- Delete link restaurant_review end -->
+    </div>
+
+    <dl>
+      <dt>
+        Restaurant
+      </dt>
+      <!-- Display restaurant_id start -->
+      <dd>
+        <%= @restaurant_review.restaurant_id %>
+      </dd>
+      <!-- Display restaurant_id end -->
+
+      <dt>
+        User
+      </dt>
+      <!-- Display user_id start -->
+      <dd>
+        <%= @restaurant_review.user_id %>
+      </dd>
+      <!-- Display user_id end -->
+
+      <dt>
+        Created at
+      </dt>
+      <!-- Display created_at start -->
+      <dd>
+        <%= time_ago_in_words(@restaurant_review.created_at) %> ago
+      </dd>
+      <!-- Display created_at end -->
+
+      <dt>
+        Updated at
+      </dt>
+      <!-- Display updated_at start -->
+      <dd>
+        <%= time_ago_in_words(@restaurant_review.updated_at) %> ago
+      </dd>
+      <!-- Display updated_at end -->
+    </dl>
+  </div>
+</div>
+
+<!-- Show Page Customization starts -->
+
+<!-- Show Page Customization end -->
