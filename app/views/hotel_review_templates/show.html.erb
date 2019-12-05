@@ -13,17 +13,21 @@
 
       <!-- Edit link hotel_review start -->
       <div class="col">
-        <a href="/hotel_reviews/<%= @hotel_review.id %>/edit" class="btn btn-block btn-outline-secondary">
-          Edit hotel review
-        </a>
+        <% if current_user == @hotel_review.user %>
+          <a href="/hotel_reviews/<%= @hotel_review.id %>/edit" class="btn btn-block btn-sm btn-outline-secondary">
+            Edit hotel_review
+          </a>
+        <% end %>
       </div>
       <!-- Edit link hotel_review end -->
 
       <!-- Delete link hotel_review start -->
       <div class="col">
-        <a href="/delete_hotel_review/<%= @hotel_review.id %>" class="btn btn-block btn-outline-secondary">
-          Delete hotel review
-        </a>
+        <% if current_user == @hotel_review.user %>
+          <a href="/delete_hotel_review/<%= @hotel_review.id %>" class="btn btn-block btn-sm btn-outline-secondary">
+            Delete hotel_review
+          </a>
+        <% end %>
       </div>
       <!-- Delete link hotel_review end -->
     </div>
