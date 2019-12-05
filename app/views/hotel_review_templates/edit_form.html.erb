@@ -15,7 +15,7 @@
     </label>
 
     <!-- Input for hotel_id start -->
-    <input type="text" id="hotel_id" name="hotel_id" class="form-control" value="<%= @hotel_review.hotel_id %>">
+    <%= select_tag(:hotel_id, options_from_collection_for_select(Hotel.all, :id, :hotel_name, @hotel_review.hotel_id), :class => "form-control") %>
     <!-- Input for hotel_id end -->
   </div>
   <!-- Label and input for hotel_id end -->
