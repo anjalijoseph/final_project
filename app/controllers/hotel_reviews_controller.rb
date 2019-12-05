@@ -57,7 +57,7 @@ class HotelReviewsController < ApplicationController
     @hotel_review = HotelReview.find(params.fetch("id_to_modify"))
 
     @hotel_review.hotel_id = params.fetch("hotel_id")
-    @hotel_review.user_id = params.fetch("user_id")
+    
 
     if @hotel_review.valid?
       @hotel_review.save
