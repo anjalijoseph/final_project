@@ -10,7 +10,7 @@ class HotelReviewsController < ApplicationController
   end
 
   def index
-    @hotel_reviews = HotelReview.all
+    @hotel_reviews = HotelReview.page(params[:page]).per(10)
 
     render("hotel_review_templates/index.html.erb")
   end
