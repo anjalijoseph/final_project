@@ -57,7 +57,7 @@ class RestaurantReviewsController < ApplicationController
     @restaurant_review = RestaurantReview.find(params.fetch("id_to_modify"))
 
     @restaurant_review.restaurant_id = params.fetch("restaurant_id")
-    @restaurant_review.user_id = params.fetch("user_id")
+    
 
     if @restaurant_review.valid?
       @restaurant_review.save
