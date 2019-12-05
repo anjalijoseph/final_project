@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :restaurant_reviews
+
   has_many   :hotel_reviews
 
   # Indirect associations
