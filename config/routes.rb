@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "hotels#index"
   # Routes for the Restaurant review resource:
 
   # CREATE
