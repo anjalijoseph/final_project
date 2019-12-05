@@ -1,0 +1,56 @@
+<h1>
+  Add a new restaurant
+</h1>
+
+
+<hr>
+
+<!-- Form restaurant start -->
+<form action="/create_restaurant" method="post">
+<!-- Form restaurant end -->
+
+  <!-- Label and input for restaurant_name start -->
+  <div class="form-group">
+    <label for="restaurant_name">
+      Restaurant name
+    </label>
+
+    <!-- Input for restaurant_name start -->
+    <input type="text" id="restaurant_name" name="restaurant_name" class="form-control">
+    <!-- Input for restaurant_name end -->
+  </div>
+  <!-- Label and input for restaurant_name end -->
+
+  <!-- Label and input for restaurant_address start -->
+  <div class="form-group">
+    <label for="restaurant_address">
+      Restaurant address
+    </label>
+
+    <!-- Input for restaurant_address start -->
+    <input type="text" id="restaurant_address" name="restaurant_address" class="form-control">
+    <!-- Input for restaurant_address end -->
+  </div>
+  <!-- Label and input for restaurant_address end -->
+
+  <!-- Label and input for outdoor_seating start -->
+  <div class="form-check">
+    <input type="hidden" value="0" name="outdoor_seating">
+    <!-- Input for outdoor_seating start -->
+    <input id="outdoor_seating" class="form-check-input" name="outdoor_seating" type="checkbox">
+    <!-- Input for outdoor_seating end -->
+    <label for="outdoor_seating" class="form-check-label">
+      Outdoor seating
+    </label>
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create restaurant
+  </button>
+</form>
+
+<hr>
+
+<a href="/restaurants">
+  Go back
+</a>
