@@ -13,17 +13,21 @@
 
       <!-- Edit link restaurant_review start -->
       <div class="col">
-        <a href="/restaurant_reviews/<%= @restaurant_review.id %>/edit" class="btn btn-block btn-outline-secondary">
-          Edit restaurant review
-        </a>
+        <% if current_user == @restaurant_review.user %>
+          <a href="/restaurant_reviews/<%= @restaurant_review.id %>/edit" class="btn btn-block btn-sm btn-outline-secondary">
+            Edit restaurant_review
+          </a>
+        <% end %>
       </div>
       <!-- Edit link restaurant_review end -->
 
       <!-- Delete link restaurant_review start -->
       <div class="col">
-        <a href="/delete_restaurant_review/<%= @restaurant_review.id %>" class="btn btn-block btn-outline-secondary">
-          Delete restaurant review
-        </a>
+        <% if current_user == @restaurant_review.user %>
+          <a href="/delete_restaurant_review/<%= @restaurant_review.id %>" class="btn btn-block btn-sm btn-outline-secondary">
+            Delete restaurant_review
+          </a>
+        <% end %>
       </div>
       <!-- Delete link restaurant_review end -->
     </div>
