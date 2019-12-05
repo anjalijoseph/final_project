@@ -1,0 +1,116 @@
+<%= search_form_for @q, :class => collapse_search_form, :id => "hotels_filters" do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :hotel_name_cont, "Hotel name contains" %>
+    <%= f.text_field :hotel_name_cont, :class => "form-control", :placeholder => "Hotel name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :pet_fee, "Pet fee" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :pet_fee_gteq, :class => "form-control", :placeholder => "Pet fee greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :pet_fee_lteq, :class => "form-control", :placeholder => "Pet fee less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :hotel_address_cont, "Hotel address contains" %>
+    <%= f.text_field :hotel_address_cont, :class => "form-control", :placeholder => "Hotel address contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :created_at, "Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='created_atgteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Created at greater than or equal to", :data => {:target => '#created_atgteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atgteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='created_atlteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Created at less than or equal to", :data => {:target => '#created_atlteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atlteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#created_atgteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atlteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atgteqPicker').on("dp.change", function (e) {
+              $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#created_atlteqPicker').on("dp.change", function (e) {
+              $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+
+  <div class="form-group">
+    <%= f.label :created_at, "HotelReview Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='reviewsgteqcreated_atPicker' data-target-input="nearest">
+          <%= f.text_field :reviews_created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "HotelReview Created at greater than or equal to", :data => {:target => '#reviewsgteqcreated_atPicker'} %>
+          <div class="input-group-append" data-target='#reviewsgteqcreated_atPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='reviewslteqcreated_atPicker' data-target-input="nearest">
+          <%= f.text_field :reviews_created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "HotelReview Created at less than or equal to", :data => {:target => '#reviewslteqcreated_atPicker'} %>
+          <div class="input-group-append" data-target='#reviewslteqcreated_atPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#reviewsgteqcreated_atPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#reviewslteqcreated_atPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#reviewsgteqcreated_atPicker').on("dp.change", function (e) {
+              $('#reviewslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#reviewslteqcreated_atPicker').on("dp.change", function (e) {
+              $('#reviewsgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+
+  <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+  <a href="/hotels" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+
+<% end %>
+
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#hotels_filters">
+  Show filters
+</a>

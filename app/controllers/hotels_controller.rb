@@ -1,6 +1,7 @@
 class HotelsController < ApplicationController
   def index
-    @hotels = Hotel.page(params[:page]).per(10)
+    @q = Hotel.ransack(params[:q])
+    @hotels = @q.result(:distinct => true).includes(:reviews).page(params[:page]).per(10)
 
     render("hotel_templates/index.html.erb")
   end
