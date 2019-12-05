@@ -1,0 +1,82 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Hotel #<%= @hotel.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/hotels" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <!-- Edit link hotel start -->
+      <div class="col">
+        <a href="/hotels/<%= @hotel.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit hotel
+        </a>
+      </div>
+      <!-- Edit link hotel end -->
+
+      <!-- Delete link hotel start -->
+      <div class="col">
+        <a href="/delete_hotel/<%= @hotel.id %>" class="btn btn-block btn-outline-secondary">
+          Delete hotel
+        </a>
+      </div>
+      <!-- Delete link hotel end -->
+    </div>
+
+    <dl>
+      <dt>
+        Hotel name
+      </dt>
+      <!-- Display hotel_name start -->
+      <dd>
+        <%= @hotel.hotel_name %>
+      </dd>
+      <!-- Display hotel_name end -->
+
+      <dt>
+        Hotel address
+      </dt>
+      <!-- Display hotel_address start -->
+      <dd>
+        <%= @hotel.hotel_address %>
+      </dd>
+      <!-- Display hotel_address end -->
+
+      <dt>
+        Pet fee
+      </dt>
+      <!-- Display pet_fee start -->
+      <dd>
+        <%= @hotel.pet_fee %>
+      </dd>
+      <!-- Display pet_fee end -->
+
+      <dt>
+        Created at
+      </dt>
+      <!-- Display created_at start -->
+      <dd>
+        <%= time_ago_in_words(@hotel.created_at) %> ago
+      </dd>
+      <!-- Display created_at end -->
+
+      <dt>
+        Updated at
+      </dt>
+      <!-- Display updated_at start -->
+      <dd>
+        <%= time_ago_in_words(@hotel.updated_at) %> ago
+      </dd>
+      <!-- Display updated_at end -->
+    </dl>
+  </div>
+</div>
+
+<!-- Show Page Customization starts -->
+
+<!-- Show Page Customization end -->

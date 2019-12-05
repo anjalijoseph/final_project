@@ -1,0 +1,65 @@
+<!-- Validation failure messages -->
+<% if @hotel.errors.any? %>
+  <% @hotel.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit hotel #<%= @hotel.id %>
+</h1>
+
+<hr>
+
+<!-- Form hotel start -->
+<form action="/update_hotel/<%= @hotel.id %>" method="post">
+<!-- Form hotel end -->
+
+  <!-- Label and input for hotel_name start -->
+  <div class="form-group">
+    <label for="hotel_name">
+      Hotel name
+    </label>
+
+    <!-- Input for hotel_name start -->
+    <input type="text" id="hotel_name" name="hotel_name" class="form-control" value="<%= @hotel.hotel_name %>">
+    <!-- Input for hotel_name end -->
+  </div>
+  <!-- Label and input for hotel_name end -->
+
+  <!-- Label and input for hotel_address start -->
+  <div class="form-group">
+    <label for="hotel_address">
+      Hotel address
+    </label>
+
+    <!-- Input for hotel_address start -->
+    <input type="text" id="hotel_address" name="hotel_address" class="form-control" value="<%= @hotel.hotel_address %>">
+    <!-- Input for hotel_address end -->
+  </div>
+  <!-- Label and input for hotel_address end -->
+
+  <!-- Label and input for pet_fee start -->
+  <div class="form-group">
+    <label for="pet_fee">
+      Pet fee
+    </label>
+
+    <!-- Input for pet_fee start -->
+    <input type="text" id="pet_fee" name="pet_fee" class="form-control" value="<%= @hotel.pet_fee %>">
+    <!-- Input for pet_fee end -->
+  </div>
+  <!-- Label and input for pet_fee end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update hotel
+  </button>
+</form>
+
+<hr>
+
+<a href="/hotels">
+  Go back
+</a>
