@@ -1,0 +1,44 @@
+<h1>
+  Edit hotel review #<%= @hotel_review.id %>
+</h1>
+
+<hr>
+
+<!-- Form hotel_review start -->
+<form action="/update_hotel_review/<%= @hotel_review.id %>" method="post">
+<!-- Form hotel_review end -->
+
+  <!-- Label and input for hotel_id start -->
+  <div class="form-group">
+    <label for="hotel_id">
+      Hotel
+    </label>
+
+    <!-- Input for hotel_id start -->
+    <input type="text" id="hotel_id" name="hotel_id" class="form-control" value="<%= @hotel_review.hotel_id %>">
+    <!-- Input for hotel_id end -->
+  </div>
+  <!-- Label and input for hotel_id end -->
+
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <!-- Input for user_id start -->
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @hotel_review.user_id %>">
+    <!-- Input for user_id end -->
+  </div>
+  <!-- Label and input for user_id end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update hotel review
+  </button>
+</form>
+
+<hr>
+
+<a href="/hotel_reviews">
+  Go back
+</a>

@@ -1,0 +1,63 @@
+class HotelReviewsController < ApplicationController
+  def index
+    @hotel_reviews = HotelReview.all
+
+    render("hotel_review_templates/index.html.erb")
+  end
+
+  def show
+    @hotel_review = HotelReview.find(params.fetch("id_to_display"))
+
+    render("hotel_review_templates/show.html.erb")
+  end
+
+  def new_form
+    @hotel_review = HotelReview.new
+
+    render("hotel_review_templates/new_form.html.erb")
+  end
+
+  def create_row
+    @hotel_review = HotelReview.new
+
+    @hotel_review.hotel_id = params.fetch("hotel_id")
+    @hotel_review.user_id = params.fetch("user_id")
+
+    if @hotel_review.valid?
+      @hotel_review.save
+
+      redirect_back(:fallback_location => "/hotel_reviews", :notice => "Hotel review created successfully.")
+    else
+      render("hotel_review_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def edit_form
+    @hotel_review = HotelReview.find(params.fetch("prefill_with_id"))
+
+    render("hotel_review_templates/edit_form.html.erb")
+  end
+
+  def update_row
+    @hotel_review = HotelReview.find(params.fetch("id_to_modify"))
+
+    @hotel_review.hotel_id = params.fetch("hotel_id")
+    @hotel_review.user_id = params.fetch("user_id")
+
+    if @hotel_review.valid?
+      @hotel_review.save
+
+      redirect_to("/hotel_reviews/#{@hotel_review.id}", :notice => "Hotel review updated successfully.")
+    else
+      render("hotel_review_templates/edit_form_with_errors.html.erb")
+    end
+  end
+
+  def destroy_row
+    @hotel_review = HotelReview.find(params.fetch("id_to_remove"))
+
+    @hotel_review.destroy
+
+    redirect_to("/hotel_reviews", :notice => "Hotel review deleted successfully.")
+  end
+end

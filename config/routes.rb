@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Hotel review resource:
+
+  # CREATE
+  get("/hotel_reviews/new", { :controller => "hotel_reviews", :action => "new_form" })
+  post("/create_hotel_review", { :controller => "hotel_reviews", :action => "create_row" })
+
+  # READ
+  get("/hotel_reviews", { :controller => "hotel_reviews", :action => "index" })
+  get("/hotel_reviews/:id_to_display", { :controller => "hotel_reviews", :action => "show" })
+
+  # UPDATE
+  get("/hotel_reviews/:prefill_with_id/edit", { :controller => "hotel_reviews", :action => "edit_form" })
+  post("/update_hotel_review/:id_to_modify", { :controller => "hotel_reviews", :action => "update_row" })
+
+  # DELETE
+  get("/delete_hotel_review/:id_to_remove", { :controller => "hotel_reviews", :action => "destroy_row" })
+
+  #------------------------------
+
   # Routes for the Hotel resource:
 
   # CREATE
