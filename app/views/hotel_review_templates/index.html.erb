@@ -58,13 +58,21 @@
 
         <!-- Display hotel_review.hotel_id start -->
         <td>
-          <%= hotel_review.hotel.hotel_name %>
+          <% if hotel_review.hotel.present? %>
+            <a href="/hotels/<%= hotel_review.hotel.id %>">
+              <%= hotel_review.hotel.hotel_name %>
+            </a>
+          <% end %>
         </td>
         <!-- Display hotel_review.hotel_id end -->
 
         <!-- Display hotel_review.user_id start -->
         <td>
-          <%= hotel_review.user.email %>
+          <% if hotel_review.user.present? %>
+            <a href="/users/<%= hotel_review.user.id %>">
+              <%= hotel_review.user.email %>
+            </a>
+          <% end %>
         </td>
         <!-- Display hotel_review.user_id end -->
 

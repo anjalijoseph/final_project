@@ -58,13 +58,21 @@
 
         <!-- Display restaurant_review.restaurant_id start -->
         <td>
-          <%= restaurant_review.restaurant.restaurant_name %>
+          <% if restaurant_review.restaurant.present? %>
+            <a href="/restaurants/<%= restaurant_review.restaurant.id %>">
+              <%= restaurant_review.restaurant.restaurant_name %>
+            </a>
+          <% end %>
         </td>
         <!-- Display restaurant_review.restaurant_id end -->
 
         <!-- Display restaurant_review.user_id start -->
         <td>
-          <%= restaurant_review.user.email %>
+          <% if restaurant_review.user.present? %>
+            <a href="/users/<%= restaurant_review.user.id %>">
+              <%= restaurant_review.user.email %>
+            </a>
+          <% end %>
         </td>
         <!-- Display restaurant_review.user_id end -->
 
