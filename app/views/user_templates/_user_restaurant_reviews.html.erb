@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Restaurant Reviews
+
+    <a data-toggle="collapse" href="#user_restaurant_reviews_new_form">
+      Add restaurant review
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.restaurant_reviews.each do |restaurant_review| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <a href="/restaurant_reviews/<%= restaurant_review.id %>">
+          <%= restaurant_review.restaurant_id %>
+        </a>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>

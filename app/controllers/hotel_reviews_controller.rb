@@ -53,6 +53,22 @@ class HotelReviewsController < ApplicationController
     end
   end
 
+  def destroy_row_from_user
+    @hotel_review = HotelReview.find(params.fetch("id_to_remove"))
+
+    @hotel_review.destroy
+
+    redirect_to("/users/#{@hotel_review.user_id}", notice: "HotelReview deleted successfully.")
+  end
+
+  def destroy_row_from_hotel
+    @hotel_review = HotelReview.find(params.fetch("id_to_remove"))
+
+    @hotel_review.destroy
+
+    redirect_to("/hotels/#{@hotel_review.hotel_id}", notice: "HotelReview deleted successfully.")
+  end
+
   def destroy_row
     @hotel_review = HotelReview.find(params.fetch("id_to_remove"))
 
