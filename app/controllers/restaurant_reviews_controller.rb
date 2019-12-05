@@ -32,6 +32,21 @@ class RestaurantReviewsController < ApplicationController
     end
   end
 
+  def create_row_from_restaurant
+    @restaurant_review = RestaurantReview.new
+
+    @restaurant_review.restaurant_id = params.fetch("restaurant_id")
+    @restaurant_review.user_id = params.fetch("user_id")
+
+    if @restaurant_review.valid?
+      @restaurant_review.save
+
+      redirect_to("/restaurants/#{@restaurant_review.restaurant_id}", notice: "RestaurantReview created successfully.")
+    else
+      render("restaurant_review_templates/new_form_with_errors.html.erb")
+    end
+  end
+
   def edit_form
     @restaurant_review = RestaurantReview.find(params.fetch("prefill_with_id"))
 

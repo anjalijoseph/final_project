@@ -32,6 +32,21 @@ class HotelReviewsController < ApplicationController
     end
   end
 
+  def create_row_from_hotel
+    @hotel_review = HotelReview.new
+
+    @hotel_review.hotel_id = params.fetch("hotel_id")
+    @hotel_review.user_id = params.fetch("user_id")
+
+    if @hotel_review.valid?
+      @hotel_review.save
+
+      redirect_to("/hotels/#{@hotel_review.hotel_id}", notice: "HotelReview created successfully.")
+    else
+      render("hotel_review_templates/new_form_with_errors.html.erb")
+    end
+  end
+
   def edit_form
     @hotel_review = HotelReview.find(params.fetch("prefill_with_id"))
 

@@ -6,6 +6,7 @@ class HotelsController < ApplicationController
   end
 
   def show
+    @hotel_review = HotelReview.new
     @hotel = Hotel.find(params.fetch("id_to_display"))
 
     render("hotel_templates/show.html.erb")

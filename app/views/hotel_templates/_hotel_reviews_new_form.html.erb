@@ -1,0 +1,25 @@
+<!-- Form hotel_review start -->
+<form action="/create_hotel_review_from_hotel" method="post">
+<!-- Form hotel_review end -->
+
+  <!-- Label and input for hotel_id start -->
+  <!-- Input for hotel_id start -->
+  <input type="hidden" name="hotel_id" value="<%= @hotel.id %>">
+  <!-- Input for hotel_id end -->
+
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <!-- Input for user_id start -->
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @hotel_review.user_id %>">
+    <!-- Input for user_id end -->
+  </div>
+  <!-- Label and input for user_id end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create hotel review
+  </button>
+</form>
